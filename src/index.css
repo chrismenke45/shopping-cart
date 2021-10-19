@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.itemDisplayGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  color: red;
+  text-align: center;
+}
+.itemImg {
+  height: 100px;
+  width: 100px;
+  vertical-align: middle;
+  align-self: center;
+
+}
+figcaption {
+  text-align: center;
+}
+.itemCard {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  align-items: center;
+  text-align: center;
+}
+.cartDisplay {
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  position: absolute;
+  right: 0;
+  background-color: brown;
+}
