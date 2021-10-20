@@ -6,6 +6,7 @@ import Shop from "./components/Shop";
 import getProductData from "./functions/getProductData";
 import apiDataToArray from "./functions/apiDataToArray";
 import CartView from "./components/CartView";
+import ItemPage from "./components/ItemPage";
 
 function App() {
   const [list, setList] = useState([]);
@@ -19,7 +20,7 @@ function App() {
       let items = apiDataToArray(data, 16, 16)
       setList(items)
       setLoaded(true)
-      
+
     })
   }, []);
 
@@ -41,11 +42,11 @@ function App() {
   const removeFromCart = (e) => {
     let newList = list.map(item => {
       if (e.target.getAttribute('data-id') === item.itemId) {
-        if(item.quantity <= 0) {
+        if (item.quantity <= 0) {
           return item;
         } else {
-        item.quantity = item.quantity - 1
-        setCart(prevState => prevState - 1);
+          item.quantity = item.quantity - 1
+          setCart(prevState => prevState - 1);
         }
       }
       return item;
@@ -56,16 +57,23 @@ function App() {
   //console.log(items)
   return (
     <BrowserRouter>
-      <Navbar displayCartToggle={displayCartToggle}/>
+      <Navbar displayCartToggle={displayCartToggle} />
 
-      <CartView list={list} displayCart={displayCart} addToCart={addToCart} removeFromCart={removeFromCart}/>
+      <CartView list={list} displayCart={displayCart} addToCart={addToCart} removeFromCart={removeFromCart} />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/shop">
-          <Shop list={list} loaded={loaded} addToCart={addToCart} removeFromCart={removeFromCart}/>
+          <Shop list={list} loaded={loaded} addToCart={addToCart} removeFromCart={removeFromCart} />
         </Route>
+        <Route path="/shop/:id" render={({ match }) => (
+          <ItemPage
+            list={list}
+            pageId={match.params.id}
+          />
+        )}
+        />
       </Switch>
     </BrowserRouter>
   );
