@@ -11,6 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+html {
+  background: url('background.png'), linear-gradient(35deg, rgb(209, 201, 253), rgb(67, 7, 206));;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 
+    top 60px left 0px,
+    top 60px right 0px,
+    bottom 0px right 0px,
+    bottom 0px left 0px;
+  background-attachment: fixed;
+}
+#navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(41, 41, 41);
+  height: 60px;
+  position: sticky;
+  top: 0;
+}
+#pageTitle {
+  color: rgb(196, 196, 196);
+}
+.navItem {
+  text-decoration: none;
+  color: rgb(196, 196, 196);
+}
+button {
+  background-color: rgb(196, 196, 196);
+  border-radius: 15px;
+}
 .itemDisplayGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -19,27 +51,141 @@ code {
   text-align: center;
 }
 .itemImg {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   vertical-align: middle;
   align-self: center;
+  background-color: rgb(140, 132, 252);
+  border-top-left-radius: 10px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 10px;
+  outline: black;
+  outline-style: solid;
 
+}
+figure {
+  margin-top: 5px;
+  margin-bottom: 0;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
 }
 figcaption {
   text-align: center;
+  color: black;
+  font-weight: 700;
+  text-shadow:
+    -1px -1px 0 rgb(255, 252, 252),  
+    -1px 0 rgb(255, 252, 252),
+    -1px 1px 0 rgb(255, 252, 252),
+    1px 1px 0 rgb(255, 252, 252);
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, .5);
+    border-bottom-left-radius: 10px;  /* 100px of height + 10px of border */
+    border-bottom-right-radius: 10px;
 }
-.itemCard {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  align-items: center;
+/*.itemCost {
+  margin: 0;
+  background-color: rgba(255, 255, 255, .5);
+  width: 150px;
+  align-self: center;
   text-align: center;
+  margin: auto;
+}*/
+.itemCard {
+  width: 220px;
+  height: min-content;
+  
+  text-align: center;
+  margin-bottom: 10px;
+  
 }
 .cartDisplay {
   border-color: black;
-  border-width: 1px;
+  border-width: 4px;
   border-style: solid;
-  position: absolute;
+  position: fixed;
   right: 0;
-  background-color: brown;
+  background-color: rgb(4, 49, 100);
+  
+}
+.cartDisplayGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.closeBtn {
+  align-self: flex-start;
+}
+.cartItemDisplay {
+  display: grid;
+  grid-template-columns: min-content;
+  grid-template-rows: min-content min-content;
+  grid-template-areas: "cartPicture cartItemTitle"
+                        "cartPicture cartItemQuantity";
+  height: 80px;
+  margin-bottom: 20px;
+}
+.cartPicture {
+  height: 80px;
+  width: 80px;
+  grid-area: cartPicture;
+}
+.cartItemTitle {
+  grid-area: cartItemTitle;
+  margin: 0;
+  text-align: center;
+}
+.cartItemQuantity {
+  grid-area: cartItemQuantity;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.cartItemQuantity button {
+  height: 25px;
+}
+.cartItemQuantity p {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+}
+.individualPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(255, 255, 255, .5);
+  max-width: fit-content;
+  border-radius: 10px;
+}
+.individualPage img {
+  height: 400px;
+  width: 400px;
+}
+.individualPage h2 {
+  text-decoration: underline;
+}
+.itemPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homePageContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.homePageNews {
+  background-color: rgba(255, 255, 255, .5);
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+}
+.homePageNews h2 {
+  text-align: center;
 }

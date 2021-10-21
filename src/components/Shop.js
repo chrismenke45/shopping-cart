@@ -2,31 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom"
 
 function Shop(props) {
-    const { list, loaded, addToCart, removeFromCart } = props
+    const { list, loaded, addToCart } = props
     return (
         <div className="itemDisplay">
             {
-                loaded ?
+                loaded ?//if API hasnt loaded dont diplay any items
                     <div className="itemDisplayGrid">
-                        {list.map((item) => {
-                            return <div key={item.itemId}>
-                                <Link data-id={item.itemId} to={`/shop/${item.itemId}`}>
-                                    <figure className="itemCard">
+                        {list.map((item) => {{/*map trhough items and add them toa grid*/}
+                            return <div key={item.itemId} className="itemCard">
+                                {/*link below makes it so each item will take you to its page if clicked on */}
+                                <Link data-id={item.itemId} to={`/shop/${item.itemId}`} style={{ textDecoration: 'none' }}>
+                                    <figure>
                                         <img className="itemImg" src={item.url} alt="not available" />
                                         <figcaption>
-                                            {item.itemName.toUpperCase() + ' ' + item.type.toUpperCase()}
+                                            {item.itemName.toUpperCase()}
+                                            <br></br>
+                                            {`$ ${item.cost}`}
+
                                         </figcaption>
                                     </figure>
                                 </Link>
-                                <p>{`$ ${item.cost}`}</p>
-                                <button data-id={item.itemId} onClick={addToCart}>Add to Cart</button>
-                                <button data-id={item.itemId} onClick={removeFromCart}>Remove from Cart</button>
+
+                                <button data-id={item.itemId} onClick={addToCart} className="addBtn">Add to Cart</button>
                             </div>
                         })
                         }
                     </div>
                     :
-                    <div>Shop</div>
+                    <div>Loading...</div>
             }
 
         </div>

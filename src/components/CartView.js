@@ -1,7 +1,7 @@
 import React from "react";
 
 function CartView(props) {
-    const { list, displayCart, addToCart, removeFromCart } = props
+    const { list, displayCart, addToCart, removeFromCart, displayCartToggle } = props
 
     const sumTotal = (arr) => {
         return arr.reduce((sum, obj) => sum + obj.cost * obj.quantity, 0)
@@ -9,31 +9,40 @@ function CartView(props) {
 
     return (
         <div className="cartDisplay">
+
             {
-                displayCart ?
+                displayCart ?//only display if user has clicked to make it visible
                     <div className="cartDisplayGrid">
-                        <h3>Your Shopping Cart</h3>
+                        <button className="closeBtn" onClick={displayCartToggle}>X</button>
+                        <h2>Your Shopping Cart</h2>
                         {list.map((item) => {
-                            if (item.quantity == 0) {
+                            if (item.quantity === 0) {
                                 return null
                             } else {
-                                return <div key={item.itemId}>
-                                    <h4>
-                                        {item.itemName.toUpperCase() + ' ' + item.type.toUpperCase()}
+                                return <div key={item.itemId} className="cartItemDisplay">
+                                    <img className="cartPicture" src={item.url} alt="Not available at this time" />
+                                    <h4 className="cartItemTitle">
+                                        {item.itemName.toUpperCase()}
                                     </h4>
-
-                                    <p>{item.quantity}</p>
-                                    <button data-id={item.itemId} onClick={addToCart}>plus</button>
-                                    <button data-id={item.itemId} onClick={removeFromCart}>minus</button>
+                                    <div className="cartItemQuantity">
+                                        <button data-id={item.itemId} onClick={addToCart}>+</button>
+                                        <p> {item.quantity} </p>
+                                        <button data-id={item.itemId} onClick={removeFromCart}>-</button>
+                                    </div>
                                 </div>
                             }
                         })
 
                         }
-                        <p>{sumTotal(list)}</p>
+                        {sumTotal(list) !== 0 ? //if cart is empty then say that, otherwise show total
+                            <p>Total: ${sumTotal(list)}</p>
+                            :
+                            <p>Your cart is empty</p>
+                        }
+
                     </div>
                     :
-                    <div>Your Shopping Cart unshown</div>
+                    null
             }
         </div>
     );
