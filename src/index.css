@@ -32,6 +32,11 @@ html {
   position: sticky;
   top: 0;
 }
+#navBar button {
+  height: 30px;
+  width: 50px;
+  background-color: rgb(196, 196, 196);
+}
 #pageTitle {
   color: rgb(196, 196, 196);
 }
@@ -40,8 +45,10 @@ html {
   color: rgb(196, 196, 196);
 }
 button {
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(255, 255, 255);
   border-radius: 15px;
+  cursor: pointer;
+  border: none;
 }
 .itemDisplayGrid {
   display: grid;
@@ -159,6 +166,7 @@ figcaption {
   background-color: rgba(255, 255, 255, .5);
   max-width: fit-content;
   border-radius: 10px;
+  padding: 15px;
 }
 .individualPage img {
   height: 400px;
@@ -185,7 +193,11 @@ figcaption {
   height: fit-content;
   width: fit-content;
   border-radius: 10px;
+  padding: 15px;
 }
 .homePageNews h2 {
   text-align: center;
+}
+sup {
+  color: red;
 }
