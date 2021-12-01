@@ -58,7 +58,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/shopping-cart'>
       <Navbar displayCartToggle={displayCartToggle} cartQuantity={cart} />
 
       <CartView list={list} displayCart={displayCart} addToCart={addToCart} removeFromCart={removeFromCart} displayCartToggle={displayCartToggle}/>
