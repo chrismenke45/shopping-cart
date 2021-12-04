@@ -35,7 +35,8 @@ html {
 #navBar button {
   height: 30px;
   width: 50px;
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(41, 41, 41);
+  border: none;
 }
 #pageTitle {
   color: rgb(196, 196, 196);
@@ -123,6 +124,8 @@ figcaption {
 }
 .closeBtn {
   align-self: flex-start;
+  background-color: rgb(4, 49, 100);
+  border: none;
 }
 .cartItemDisplay {
   display: grid;

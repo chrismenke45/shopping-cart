@@ -15,8 +15,8 @@ function Navbar(props) {
             <Link to="/shop" style={{ textDecoration: 'none' }}>
                 <h3 className="navItem">Shop</h3>
             </Link>
-            <button onClick={displayCartToggle}>
-                <FontAwesomeIcon icon={faShoppingCart} />
+            <button id="cartButton" onClick={displayCartToggle}>
+                <FontAwesomeIcon className="navItem" icon={faShoppingCart} />
                 {cartQuantity ? //if cart is empty dont display number, otherwise display number of items
                     <sup> {cartQuantity}</sup>
                     :

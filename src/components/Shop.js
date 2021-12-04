@@ -7,8 +7,11 @@ function Shop(props) {
         <div className="itemDisplay">
             {
                 loaded ?//if API hasnt loaded dont diplay any items
+
                     <div className="itemDisplayGrid">
-                        {list.map((item) => {{/*map trhough items and add them toa grid*/}
+                        {list.map((item) => {
+                            // eslint-disable-next-line
+                            {/*map trhough items and add them toa grid*/ }
                             return <div key={item.itemId} className="itemCard">
                                 {/*link below makes it so each item will take you to its page if clicked on */}
                                 <Link data-id={item.itemId} to={`/shop/${item.itemId}`} style={{ textDecoration: 'none' }}>
@@ -31,7 +34,6 @@ function Shop(props) {
                     :
                     <div>Loading...</div>
             }
-
         </div>
     );
 }
