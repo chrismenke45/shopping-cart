@@ -6,7 +6,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 function Navbar(props) {
     const { displayCartToggle, cartQuantity } = props
     return (
-        <div id="navBar">
+        <nav id="navBar">
             {/*these are the links that lead to other oages */}
             <h1 id="pageTitle">FORTNITE - Upcoming Items</h1>
             <Link to="/" style={{ textDecoration: 'none' }}>
@@ -22,7 +22,7 @@ function Navbar(props) {
                     :
                     null}
             </button>
-        </div>
+        </nav>
     );
 }
 

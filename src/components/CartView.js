@@ -8,7 +8,7 @@ function CartView(props) {
     }
 
     return (
-        <div className="cartDisplay">
+        <aside className="cartDisplay">
 
             {
                 displayCart ?//only display if user has clicked to make it visible
@@ -44,7 +44,7 @@ function CartView(props) {
                     :
                     null
             }
-        </div>
+        </aside>
     );
 }
 

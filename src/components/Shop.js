@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Shop(props) {
     const { list, loaded, addToCart } = props
     return (
-        <div className="itemDisplay">
+        <article className="itemDisplay">
             {
                 loaded ?//if API hasnt loaded dont diplay any items
 
@@ -12,7 +12,7 @@ function Shop(props) {
                         {list.map((item) => {
                             // eslint-disable-next-line
                             {/*map trhough items and add them toa grid*/ }
-                            return <div key={item.itemId} className="itemCard">
+                            return <section key={item.itemId} className="itemCard">
                                 {/*link below makes it so each item will take you to its page if clicked on */}
                                 <Link data-id={item.itemId} to={`/shop/${item.itemId}`} style={{ textDecoration: 'none' }}>
                                     <figure>
@@ -27,14 +27,14 @@ function Shop(props) {
                                 </Link>
 
                                 <button data-id={item.itemId} onClick={addToCart} className="addBtn">Add to Cart</button>
-                            </div>
+                            </section>
                         })
                         }
                     </div>
                     :
                     <div>Loading...</div>
             }
-        </div>
+        </article>
     );
 }
 

@@ -6,7 +6,7 @@ function ItemPage(props) {
     console.log(item)
     console.log(loaded)
     return (
-        <div className="itemPage">
+        <article className="itemPage">
             {loaded ?//only display if api has been succesfully called
                 <div className="individualPage">
                     <h2>{item.itemName}</h2>
@@ -18,7 +18,7 @@ function ItemPage(props) {
                 :
                 <h3>Loading...</h3>
             }
-        </div>
+        </article>
     );
 }
 
