@@ -53,8 +53,9 @@ button {
 }
 .itemDisplayGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
+  justify-items: center;
   color: red;
   text-align: center;
 }
@@ -108,12 +109,16 @@ figcaption {
   
 }
 .cartDisplay {
+  /*
   border-color: black;
-  border-width: 4px;
+  border-width: 1px;
   border-style: solid;
+  */
   position: fixed;
   right: 0;
   background-color: rgb(4, 49, 100);
+  width: 350px;
+  max-width: 100%;
   
 }
 .cartDisplayGrid {

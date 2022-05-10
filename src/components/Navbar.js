@@ -8,9 +8,8 @@ function Navbar(props) {
     return (
         <nav id="navBar">
             {/*these are the links that lead to other oages */}
-            <h1 id="pageTitle">FORTNITE - Upcoming Items</h1>
             <Link to="/" style={{ textDecoration: 'none' }}>
-                <h3 className="navItem">Home</h3>
+                <h1 id="pageTitle">FORTNITE - Upcoming Items</h1>
             </Link>
             <Link to="/shop" style={{ textDecoration: 'none' }}>
                 <h3 className="navItem">Shop</h3>

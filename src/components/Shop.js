@@ -11,7 +11,7 @@ function Shop(props) {
                     <div className="itemDisplayGrid">
                         {list.map((item) => {
                             // eslint-disable-next-line
-                            {/*map trhough items and add them toa grid*/ }
+                            {/*map trhough items and add them to grid*/ }
                             return <section key={item.itemId} className="itemCard">
                                 {/*link below makes it so each item will take you to its page if clicked on */}
                                 <Link data-id={item.itemId} to={`/shop/${item.itemId}`} style={{ textDecoration: 'none' }}>
